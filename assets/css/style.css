@@ -617,6 +617,12 @@ section {
   font-size: 18px;
 }
 
+.services .pricing {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 13px !important;
+}
+
 .services .title a {
   color: #111;
 }
