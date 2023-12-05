@@ -777,7 +777,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="emailForm" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Họ và Tên</label>
@@ -909,6 +909,37 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Bắt sự kiện gửi biểu mẫu
+      $('#emailForm').submit(function (event) {
+        // Ngăn chặn hành vi mặc định của biểu mẫu
+        event.preventDefault();
+
+        // Lấy dữ liệu từ biểu mẫu
+        const formData = {
+          recipient: $('#email').val(),
+          subject: $('#subject').val(),
+          message: $('#message').val()
+        };
+
+        // Gửi yêu cầu AJAX để xử lý gửi email
+        $.ajax({
+          url: 'sendEmail.php', // Đường dẫn tới tệp xử lý PHP
+          method: 'POST',
+          data: formData,
+          success: function (response) {
+            console.log('Email gửi thành công:', response);
+            // Xử lý phản hồi tại đây nếu cần
+          },
+          error: function (error) {
+            console.error('Error sending email:', error);
+            // Xử lý lỗi tại đây nếu cần
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
