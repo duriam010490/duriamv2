@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Gửi email
   $headers = 'From: thanhtrung@duriam.vn'; // Thay thế bằng địa chỉ email của bạn
-  $success = mail($recipient, $subject, $message, $headers);
+  $success = mail($email, $subject, $message, $headers);
 
   // Trả về phản hồi cho JavaScript
   if ($success) {
