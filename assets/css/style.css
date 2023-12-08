@@ -1369,3 +1369,9 @@ section {
     padding: 3px 0;
   }
 }
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
